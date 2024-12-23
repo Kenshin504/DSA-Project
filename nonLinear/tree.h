@@ -165,20 +165,14 @@ void tree()
                     inorderTraversal(root);
                     printf("\nEnter value to delete: ");
                 }
-                TreeNode *resultRoot = deleteNode(root, value);
                 
-                if (resultRoot == NULL && root != NULL)
-                {
-                    printf("%sNode %d deleted, tree is now empty.%s\n", GRN, value, RESET);
-                    root = resultRoot;
-                }
-                else if (root == resultRoot && searchNode(root, value) == NULL)
+                if (searchNode(root, value) == NULL)
                     printf("%sNode %d not found in the tree.%s\n", RED, value, RESET);
                 else
                 {
-                    root = resultRoot; 
+                    root = deleteNode(root, value);
                     printf("%sNode %d deleted!%s\n", GRN, value, RESET);
-                }  
+                }
                 
                 clearBuffer();
                 getchar();
@@ -217,17 +211,17 @@ TreeNode *createTreeNode(int data)
 
 int insertNode(TreeNode **root, int data)
 {
-    if(*root == NULL)
+    if (*root == NULL) 
     {
         *root = createTreeNode(data);
         return 1;
     }
 
-    if(data < (*root)->data)
-        insertNode(&(*root)->left,  data);
-    else if(data > (*root)->data)
-        insertNode(&(*root)->right, data);
-    else
+    if (data < (*root)->data) 
+        return insertNode(&(*root)->left, data); 
+    else if (data > (*root)->data) 
+        return insertNode(&(*root)->right, data);
+    else 
     {
         printf("%sDuplicate Value! Node not inserted.%s\n", RED, RESET);
         return 0;
