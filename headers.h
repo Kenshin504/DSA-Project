@@ -64,8 +64,29 @@ void generate(int *size, int **e)
 {
     srand(time(NULL));
 
-    for(int i = 0; i < *size; i++)
-        (*e)[i] = rand() % 99;
+    int count = 0; // Counter to track how many unique numbers have been generated
+    while (count < *size)
+    {
+        int num = rand() % 99; // Generate a random number between 0 and 98
+        int isDuplicate = 0;
+
+        // Check if the generated number already exists in the array
+        for (int i = 0; i < count; i++)
+        {
+            if ((*e)[i] == num)
+            {
+                isDuplicate = 1; // Mark as duplicate if found
+                break;
+            }
+        }
+
+        // If it's not a duplicate, add it to the array
+        if (!isDuplicate)
+        {
+            (*e)[count] = num;
+            count++; // Increment the count of unique numbers
+        }
+    }
 }
 
 
@@ -80,7 +101,7 @@ void charSwaps(char *a, char *b)
 void displayIntegers(int size, int *e)
 {
     for(int i = 0; i < size; i++)
-        printf("%d ", e[i]);
+        printf("%s%d%s ", BLU, e[i], RESET);
 
     printf("\n");
 }
@@ -143,7 +164,7 @@ void generateElement(int *size, int **e)
 {
     clearScreen();
     
-    printf("-------------- %sInput Elements%s ------------------\n", GRN, RESET);
+    printf("-------------- %sGenerate Elements%s ------------------\n", GRN, RESET);
     printf("Enter size of elements: ");
     while(scanf("%d", size) != 1 || *size <= 0)
     {
@@ -151,7 +172,7 @@ void generateElement(int *size, int **e)
         clearBuffer();
         getchar();
         clearScreen();
-        printf("-------------- %sInput Elements%s ------------------\n", GRN, RESET);
+        printf("-------------- %sGenerate Elements%s ------------------\n", GRN, RESET);
         printf("Enter size of elements: ");
     }
 
@@ -174,5 +195,17 @@ void binarySort(int size, int *e)
                 e[j + 1] = temp;
             }
         }
+    }
+}
+
+
+void shuffleArray(int *e, int size)
+{
+    srand(time(NULL));
+
+    for(int i = size - 1; i > 0; i--)
+    {
+        int j = rand() % (i + 1);
+        swaps(&e[i], &e[j]);
     }
 }

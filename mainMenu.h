@@ -1,14 +1,4 @@
 #include "headers.h"
-//#include "searchingCodes/linear.h"
-//#include "searchingCodes/binary.h"
-#include "sortingCodes/bubbleSort.h"
-#include "sortingCodes/selectionSort.h"
-#include "sortingCodes/insertionSort.h"
-#include "sortingCodes/countingSort.h"
-#include "sortingCodes/mergeSort.h"
-#include "sortingCodes/quickSort.h"
-#include "sortingCodes/radixSort.h"
-#include "sortingCodes/heapSort.h"
 #include "String/insert.h"
 #include "String/replace.h"
 #include "String/delete.h"
@@ -35,6 +25,7 @@
 #include "searchingCodes/Searching.h"
 #include "searchingCodes/linearSearch.h"
 #include "searchingCodes/binarySearch.h"
+#include "sortingCodes/Sorting.h"
 
 
 void pDataTypes();
@@ -42,8 +33,6 @@ void nonPDataTypes();
 void linearMenu();
 void nonLinearMenu();
 void arraysMenu();
-void sortingMenu();
-void searchingMenu();
 void stringMenu();
 void linkedListMenu();
 void stackQueuesMenu();
@@ -362,7 +351,7 @@ void arraysMenu()
                 break;
 
             case 2:
-                sortingMenu();
+                Sorting();
                 break;
 
             case 3: 
@@ -378,97 +367,6 @@ void arraysMenu()
                 break;
 
             case 6:
-                return;
-
-            default:
-                printf("%sInvalid Input!%s\n", RED, RESET);
-                clearBuffer();
-                getchar();
-                break;
-        }
-    }
-}
-
-
-void searchingMenu()
-{
-
-}
-
-
-void sortingMenu()
-{
-    int ch;
-    while(1)
-    {
-        clearScreen();
-        printf("---- %sSorting Menu%s ----\n", GRN, RESET);
-        printf("[1] Bubble Sort\n");
-        printf("[2] Selection Sort\n");
-        printf("[3] Insertion Sort\n");
-        printf("[4] Counting Sort\n");
-        printf("[5] Merge Sort\n");
-        printf("[6] Quick Sort\n");
-        printf("[7] Radix Sort\n");
-        printf("[8] Heap Sort\n");
-        printf("[9] Exit\n");
-        printf("---------------------\n");
-        printf("Response: ");
-        while(scanf("%d", &ch) != 1)
-        {
-            printf("%sInvalid Input!%s\n", RED, RESET);
-            clearBuffer();
-            getchar();
-            clearScreen();
-            printf("---- %sSorting Menu%s ----\n", GRN, RESET);
-            printf("[1] Bubble Sort\n");
-            printf("[2] Selection Sort\n");
-            printf("[3] Insertion Sort\n");
-            printf("[4] Counting Sort\n");
-            printf("[5] Merge Sort\n");
-            printf("[6] Quick Sort\n");
-            printf("[7] Radix Sort\n");
-            printf("[8] Heap Sort\n");
-            printf("[9] Exit\n");
-            printf("---------------------\n");
-            printf("Response: ");
-        }
-
-        switch(ch)
-        {
-            case 1:
-                bubbleSort();
-                break;
-
-            case 2:
-                selectionSort();
-                break;
-
-            case 3:
-                insertionSort();
-                break;
-
-            case 4:
-                countingSort();
-                break;
-
-            case 5:
-                mergeSort();
-                break;
-
-            case 6:
-                quickSort();
-                break;
-
-            case 7: 
-                radixSort();
-                break;
-
-            case 8:
-                heapSort();
-                break;
-
-            case 9:
                 return;
 
             default:

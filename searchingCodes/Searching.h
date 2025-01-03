@@ -46,6 +46,16 @@ void Searching()
             SearchingMenu(arr_size, e);
             getchar();
             break;
+
+        case 3:
+            free(e);
+            return;
+
+        default:
+            printf("%sInvalid Input!%s", RED, RESET);
+            clearBuffer();
+            getchar();
+            break;
     }
 }
 
@@ -56,11 +66,11 @@ void SearchingMenu(int size, int *e)
     while(1)
     {
         clearScreen();
-        printf("---- %sSearching Menu%s ----\n", GRN, RESET);
+        printf("---- %sSearching Operations%s ----\n", GRN, RESET);
         printf("[1] Linear Search\n");
         printf("[2] Binary Search\n");
         printf("[3] Exit\n");
-        printf("-----------------------\n");
+        printf("-------------------------------\n");
         printf("Response: ");
         while(scanf("%d", &ch) != 1)
         {
@@ -68,11 +78,11 @@ void SearchingMenu(int size, int *e)
             clearBuffer();
             getchar();
             clearScreen();
-            printf("---- %sSearching Menu%s ----\n", GRN, RESET);
+            printf("---- %sSearching Operations%s ----\n", GRN, RESET);
             printf("[1] Linear Search\n");
             printf("[2] Binary Search\n");
             printf("[3] Exit\n");
-            printf("-----------------------\n");
+            printf("-------------------------------\n");
             printf("Response: ");
         }
         

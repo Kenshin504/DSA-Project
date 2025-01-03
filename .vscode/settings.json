@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "mainmenu.h": "c"
+        "mainmenu.h": "c",
+        "graph.h": "c",
+        "delete.h": "c"
     }
 }
