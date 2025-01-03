@@ -1,6 +1,6 @@
 #include "headers.h"
-#include "searchingCodes/linear.h"
-#include "searchingCodes/binary.h"
+//#include "searchingCodes/linear.h"
+//#include "searchingCodes/binary.h"
 #include "sortingCodes/bubbleSort.h"
 #include "sortingCodes/selectionSort.h"
 #include "sortingCodes/insertionSort.h"
@@ -32,6 +32,9 @@
 #include "stacks/deque.h"
 #include "nonLinear/graph.h"
 #include "nonLinear/tree.h"
+#include "searchingCodes/Searching.h"
+#include "searchingCodes/linearSearch.h"
+#include "searchingCodes/binarySearch.h"
 
 
 void pDataTypes();
@@ -355,7 +358,7 @@ void arraysMenu()
         switch(ch)
         {
             case 1:
-                searchingMenu();   
+                Searching();   
                 break;
 
             case 2:
@@ -389,50 +392,7 @@ void arraysMenu()
 
 void searchingMenu()
 {
-    int ch;
-    while(1)
-    {
-        clearScreen();
-        printf("---- %sSearching Menu%s ----\n", GRN, RESET);
-        printf("[1] Linear Search\n");
-        printf("[2] Binary Search\n");
-        printf("[3] Exit\n");
-        printf("-----------------------\n");
-        printf("Response: ");
-        while(scanf("%d", &ch) != 1)
-        {
-            printf("%sInvalid Input!%s\n", RED, RESET);
-            clearBuffer();
-            getchar();
-            clearScreen();
-            printf("---- %sSearching Menu%s ----\n", GRN, RESET);
-            printf("[1] Linear Search\n");
-            printf("[2] Binary Search\n");
-            printf("[3] Exit\n");
-            printf("-----------------------\n");
-            printf("Response: ");
-        }
-        
-        switch(ch)
-        {
-            case 1:
-                linear();
-                break;
-            
-            case 2:
-                binary();
-                break;
 
-            case 3:
-                return;
-
-            default:
-                printf("%sInvalid Input!%s\n", RED, RESET);
-                clearBuffer();
-                getchar();
-                break;
-        }
-    }
 }
 
 

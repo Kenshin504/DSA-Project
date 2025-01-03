@@ -22,10 +22,12 @@
 void clearScreen(void);
 void bSort(int e[], int size);
 void swaps(int *a, int *b);
-void generate(int size, int e[]);
+void generate(int *size, int **e);
 void charSwaps(char *a, char *b);
 void displayIntegers(int size, int e[]);
 void clearBuffer();
+void inputElement(int *size, int **e);
+void generateElement(int *size, int **e);
 
 
 int ch;
@@ -58,10 +60,12 @@ void swaps(int *a, int *b)
 }
 
 
-void generate(int size, int e[])
+void generate(int *size, int **e)
 {
-    for(int i = 0; i < size; i++)
-        e[i] = i + 1;
+    srand(time(NULL));
+
+    for(int i = 0; i < *size; i++)
+        (*e)[i] = rand() % 99;
 }
 
 
@@ -73,7 +77,7 @@ void charSwaps(char *a, char *b)
 }
 
 
-void displayIntegers(int size, int e[])
+void displayIntegers(int size, int *e)
 {
     for(int i = 0; i < size; i++)
         printf("%d ", e[i]);
@@ -95,4 +99,80 @@ void clearBuffer()
 {
     int c; 
     while((c = getchar()) != '\n' && c != EOF); 
+}
+
+
+void inputElement(int *size, int **e)
+{
+    clearScreen();
+    
+    printf("-------------- %sInput Elements%s ------------------\n", GRN, RESET);
+    printf("Enter size of elements: ");
+    while(scanf("%d", size) != 1 || *size <= 0)
+    {
+        printf("%sInvalid Input.%s", RED, RESET);
+        clearBuffer();
+        getchar();
+        clearScreen();
+        printf("-------------- %sInput Elements%s ------------------\n", GRN, RESET);
+        printf("Enter size of elements: ");
+    }
+
+    *e = malloc(*size * sizeof(int));
+
+    clearScreen();
+    printf("-------------- %sInput Elements%s ------------------\n", GRN, RESET);
+    printf("Enter %d elements: ", *size);
+    
+    for(int i = 0; i < *size; i++)
+    {
+        while(scanf("%d", &(*e)[i]) != 1)
+        {
+            printf("%sInvalid Input!%s", RED, RESET);
+            clearBuffer();
+            getchar();
+            clearScreen();
+            printf("-------------- %sInput Elements%s ------------------\n", GRN, RESET);
+            printf("Enter %d elements: ", *size);
+        }
+    }
+}
+
+
+void generateElement(int *size, int **e)
+{
+    clearScreen();
+    
+    printf("-------------- %sInput Elements%s ------------------\n", GRN, RESET);
+    printf("Enter size of elements: ");
+    while(scanf("%d", size) != 1 || *size <= 0)
+    {
+        printf("%sInvalid Input.%s", RED, RESET);
+        clearBuffer();
+        getchar();
+        clearScreen();
+        printf("-------------- %sInput Elements%s ------------------\n", GRN, RESET);
+        printf("Enter size of elements: ");
+    }
+
+    *e = malloc(*size * sizeof(int));
+
+    generate(size, e);
+}
+
+
+void binarySort(int size, int *e)
+{
+    for(int i = 0; i < size - 1; i++)
+    {
+        for(int j = 0; j < size - i - 1; j++)
+        {
+            if(e[j] > e[j + 1])
+            {
+                int temp = e[j];
+                e[j] = e[j + 1];
+                e[j + 1] = temp;
+            }
+        }
+    }
 }
