@@ -7,9 +7,9 @@
 #include "String/substring.h"
 #include "String/comparison.h"
 #include "String/characterAccess.h"
-#include "arrayCodes/insertArray.h"
-#include "arrayCodes/deleteArray.h"
-#include "arrayCodes/mergeArray.h"
+//#include "arrayCodes/insertArray.h"
+///#include "arrayCodes/deleteArray.h"
+//#include "arrayCodes/mergeArray.h"
 #include "linkedListCodes/singlyLinkedList.h"
 #include "linkedListCodes/doublyLinkedList.h"
 #include "PDT/boolean.h"
@@ -26,6 +26,7 @@
 #include "searchingCodes/linearSearch.h"
 #include "searchingCodes/binarySearch.h"
 #include "sortingCodes/Sorting.h"
+#include "arrayCodes/Arrays.h"
 
 
 void pDataTypes();
@@ -321,10 +322,8 @@ void arraysMenu()
         printf("---- %sArrays Menu%s ----\n", GRN, RESET);
         printf("[1] Searching\n");
         printf("[2] Sorting\n");
-        printf("[3] Insert\n");
-        printf("[4] Delete\n");
-        printf("[5] Merge\n");
-        printf("[6] Exit\n");
+        printf("[3] Arrays\n");
+        printf("[4] Exit\n");
         printf("--------------------\n");
         printf("Response: ");
         while(scanf("%d", &ch) != 1)
@@ -355,18 +354,10 @@ void arraysMenu()
                 break;
 
             case 3: 
-                insertArray();
+                Arrays();
                 break;
 
             case 4:
-                deleteArray();
-                break;
-
-            case 5: 
-                mergeArray();
-                break;
-
-            case 6:
                 return;
 
             default:
