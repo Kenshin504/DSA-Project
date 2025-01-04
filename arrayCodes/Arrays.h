@@ -18,7 +18,7 @@ void Arrays()
     printf("[1] Input Elements\n");
     printf("[2] Generate Elements\n");
     printf("[3] Exit\n");
-    printf("--------------------------------------------------\n");
+    printf("-----------------------------------------------\n");
     printf("Response: ");
     while(scanf("%d", &ch) != 1)
     {
@@ -30,7 +30,7 @@ void Arrays()
         printf("[1] Input Elements\n");
         printf("[2] Generate Elements\n");
         printf("[3] Exit\n");
-        printf("--------------------------------------------------\n");
+        printf("-----------------------------------------------\n");
         printf("Response: ");
     }
 
@@ -107,9 +107,19 @@ void ArraysMenu(int size, int *e)
 
             case 3:
                 Merge(&size, &e);
+                getchar();
+                getchar();
                 break;
 
+            case 4:
+                free(e);
+                return;
+
             default:
+                printf("%sInvalid Input!%s", RED, RESET);
+                clearBuffer();
+                getchar();
+                break;
         }
     }
 }

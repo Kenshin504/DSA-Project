@@ -22,7 +22,7 @@ void Sorting()
     printf("[1] Input Elements\n");
     printf("[2] Generate Elements\n");
     printf("[3] Exit\n");
-    printf("--------------------------------------------------\n");
+    printf("----------------------------------------------\n");
     printf("Response: ");
     while(scanf("%d", &ch) != 1)
     {
@@ -34,7 +34,7 @@ void Sorting()
         printf("[1] Input Elements\n");
         printf("[2] Generate Elements\n");
         printf("[3] Exit\n");
-        printf("--------------------------------------------------\n");
+        printf("----------------------------------------------\n");
         printf("Response: ");
     }
 
@@ -83,7 +83,7 @@ void SortingMenu(int size, int *e)
         printf("[8] Radix Sort\n");
         printf("[9] Heap Sort\n");
         printf("[10] Exit\n");
-        printf("-------------------------------------------\n");
+        printf("-----------------------------------------\n");
         printf("Response: ");
         while(scanf("%d", &ch) != 1)
         {
@@ -103,7 +103,7 @@ void SortingMenu(int size, int *e)
             printf("[8] Radix Sort\n");
             printf("[9] Heap Sort\n");
             printf("[10] Exit\n");
-            printf("-------------------------------------------\n");
+            printf("-----------------------------------------\n");
             printf("Response: ");
         }
 
